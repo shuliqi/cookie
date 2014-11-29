@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>将资料写入Cookie</title>
+</head>
+<script language="javascript">
+// cookie的创建方式 
+function addCookie(saaaaName,sValue,day) {
+var expireDate = new Date();// 创建一个新的对象 expireDate
+expireDate.setDate(expireDate.getDate()+day);;
+//getDate() 获取当前的日期和时间  setDate()设置时间 一个月的某一天
+//以上设置失效时间
+document.cookie = escape(sName) + '=' + escape(sValue) +';expires=' + expireDate.toGMTString();6 //因为cookies本身就是一个字符串属性 escape()汉字转成unicode编码,toGMTString() 把日期对象转成字符串  expires是生存期 GMT_String是以GMT格式表示的时间字符串，这条语句就是将userId这个cookie设置为
+
+// GMT_String表示的过期时间
+}
+
+// 读取cookie 
+function getCookies() {
+var showAllCookie = '';//定义一个变量 赋值空的字符串
+if(!document.cookie == ''){  //判断当前页面是否有cookie
+var arrCookie = document.cookie.split('; ');
+//用spilt('; ')切割所有cookie  保存在数组arrCookie中
+var arrLength = arrCookie.length;
+for(var i=0; i<arrLength; i++) {
+showAllCookie += 'c_name:' + unescape(arrCookie[i].split('=')[0]) + 'c_value:' + unescape(arrCookie[i].split('=')[1]) + '<br>' 9 }
+return showAllCookie;
+}
+} 
+</script>
+<body>
+ 
+
+
+
+</body>
+</html>
